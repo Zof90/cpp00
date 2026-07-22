@@ -3,5 +3,12 @@ obj/
 a.out
 ex00/megaphone
 ex01/MyAwesomePhoneBook
-test/
-test_ex02/
+TestEx00
+TestEx01
+TestEx02N1
+TestEx02N2
+TestEx02N3
+ex02/19920104_091532.log
+ex02/Account
+ex02/mine.log
+files-intra
