@@ -6,7 +6,7 @@
 /*   By: schouite <schouite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/21 15:46:21 by schouite          #+#    #+#             */
-/*   Updated: 2026/07/22 18:20:45 by schouite         ###   ########.fr       */
+/*   Updated: 2026/08/11 11:54:49 by schouite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,6 @@ Account::Account(void)
 Account::~Account()
 {
 	_totalAmount -= _amount;
-	_totalNbDeposits -= _nbDeposits;
-	_totalNbWithdrawals -= _nbWithdrawals;
 	_nbAccounts--;
 	Account::_displayTimestamp();
 	std::cout << "index:" << _accountIndex << ";amount:" << _amount << ";closed" << std::endl;
@@ -79,7 +77,7 @@ void Account::makeDeposit(int deposit)
 bool Account::makeWithdrawal(int withdrawal)
 {
 	Account::_displayTimestamp();
-	if (_amount > withdrawal)
+	if (_amount >= withdrawal)
 	{
 		std::cout << "index:" << _accountIndex << ";p_amount:" << _amount << ";withdrawal:" << withdrawal;
 		_amount -= withdrawal;
