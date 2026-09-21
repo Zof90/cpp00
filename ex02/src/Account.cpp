@@ -6,7 +6,7 @@
 /*   By: schouite <schouite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/21 15:46:21 by schouite          #+#    #+#             */
-/*   Updated: 2026/08/11 11:54:49 by schouite         ###   ########.fr       */
+/*   Updated: 2026/09/21 14:03:42 by schouite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int Account::_nbAccounts = 0;
 int Account::_totalAmount = 0;
 int Account::_totalNbDeposits = 0;
 int Account::_totalNbWithdrawals = 0;
-Account::Account(int initial_deposit)
+Account::Account(int initial_deposit): _nbDeposits(0), _nbWithdrawals(0)
 {
 	_amount = initial_deposit;
 	_totalAmount += _amount;
@@ -26,7 +26,7 @@ Account::Account(int initial_deposit)
 	Account::_displayTimestamp();
 	std::cout << "index:" << _accountIndex << ";amount:" << _amount << ";created" << std::endl;
 };
-Account::Account(void)
+Account::Account(void): _nbDeposits(0), _nbWithdrawals(0)
 {
 	_amount = 0;
 	_accountIndex = _nbAccounts++;
