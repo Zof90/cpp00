@@ -6,7 +6,7 @@
 /*   By: schouite <schouite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/12 14:11:22 by schouite          #+#    #+#             */
-/*   Updated: 2026/07/16 17:45:25 by schouite         ###   ########.fr       */
+/*   Updated: 2026/09/21 13:20:34 by schouite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,21 +21,12 @@ int	main(void)
 	{
 		std::cout << "Enter command: ";
 		std::getline(std::cin, name);
-		if (name == "exit")
-		{
-			std::cout << "Bye" << std::endl;
+		if (name == "EXIT")
 			break ;
-		}
-		else if (name == "add")
-		{
+		else if (name == "ADD")
 			phoneBook.add();
-		}
-		else if (name == "search")
-		{
+		else if (name == "SEARCH")
 			phoneBook.search();
-		}
-		else
-			std::cout << "unknown command" << std::endl;
 	}
 	return (0);
 }
