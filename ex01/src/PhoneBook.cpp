@@ -6,7 +6,7 @@
 /*   By: schouite <schouite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/14 18:04:13 by schouite          #+#    #+#             */
-/*   Updated: 2026/09/21 14:04:58 by schouite         ###   ########.fr       */
+/*   Updated: 2026/09/21 16:00:53 by schouite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,35 +26,40 @@ void PhoneBook::add(void)
 	while (str == "")
 	{
 		std::cout << "enter your first name" << std::endl;
-		std::getline(std::cin, str);
+		if (!std::getline(std::cin, str))
+			return;
 		contact.chFirstName(str);
 	}
 	str = "";
 	while (str == "")
 	{
 		std::cout << "enter your last name" << std::endl;
-		std::getline(std::cin, str);
+		if (!std::getline(std::cin, str))
+			return;
 		contact.chLastName(str);
 	}
 	str = "";
 	while (str == "")
 	{
 		std::cout << "enter your nick name" << std::endl;
-		std::getline(std::cin, str);
+		if (!std::getline(std::cin, str))
+			return;
 		contact.chNickName(str);
 	}
 	str = "";
 	while (str == "")
 	{
 		std::cout << "enter your phone number" << std::endl;
-		std::getline(std::cin, str);
+		if (!std::getline(std::cin, str))
+			return;
 		contact.chPhoneNumber(str);
 	}
 	str = "";
 	while (str == "")
 	{
 		std::cout << "enter your darkest secret" << std::endl;
-		std::getline(std::cin, str);
+		if (!std::getline(std::cin, str))
+			return;
 		contact.chDarkestSecret(str);
 	}
 	_contacts[_nextIndex] = contact;

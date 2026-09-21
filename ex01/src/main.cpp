@@ -6,7 +6,7 @@
 /*   By: schouite <schouite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/12 14:11:22 by schouite          #+#    #+#             */
-/*   Updated: 2026/09/21 13:20:34 by schouite         ###   ########.fr       */
+/*   Updated: 2026/09/21 15:57:54 by schouite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ int	main(void)
 	while (true)
 	{
 		std::cout << "Enter command: ";
-		std::getline(std::cin, name);
+		if (!std::getline(std::cin, name))
+			break;
 		if (name == "EXIT")
 			break ;
 		else if (name == "ADD")
