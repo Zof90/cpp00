@@ -6,9 +6,13 @@
 /*   By: schouite <schouite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/15 14:50:37 by schouite          #+#    #+#             */
-/*   Updated: 2026/07/15 17:11:05 by schouite         ###   ########.fr       */
+/*   Updated: 2026/09/21 13:59:35 by schouite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+
+#ifndef CONTACT_HPP
+# define CONTACT_HPP
 
 #include <iostream>
 #include <string>
@@ -34,3 +38,4 @@ class Contact
 	const std::string &getPhoneNumber(void) const;
 	const std::string &getDarkestSecret(void) const;
 };
+#endif

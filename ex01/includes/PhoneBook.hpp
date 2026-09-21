@@ -6,7 +6,7 @@
 /*   By: schouite <schouite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/14 18:00:34 by schouite          #+#    #+#             */
-/*   Updated: 2026/07/16 17:38:49 by schouite         ###   ########.fr       */
+/*   Updated: 2026/09/21 13:21:31 by schouite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ class PhoneBook
   private:
 	Contact _contacts[8];
 	int _nextIndex;
+	int _count;
 	std::string _formatField(std::string str) const;
 
   public:

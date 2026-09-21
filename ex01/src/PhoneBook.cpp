@@ -6,15 +6,16 @@
 /*   By: schouite <schouite@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/14 18:04:13 by schouite          #+#    #+#             */
-/*   Updated: 2026/07/16 18:14:26 by schouite         ###   ########.fr       */
+/*   Updated: 2026/09/21 14:04:58 by schouite         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <PhoneBook.hpp>
 #include <iomanip>
 #include <iostream>
+#include <string>
 
-PhoneBook::PhoneBook(void) : _nextIndex(0)
+PhoneBook::PhoneBook(void) : _nextIndex(0), _count(0)
 {
 }
 void PhoneBook::add(void)
@@ -58,21 +59,23 @@ void PhoneBook::add(void)
 	}
 	_contacts[_nextIndex] = contact;
 	_nextIndex = (_nextIndex + 1) % 8;
+	if (_count < 8)
+		_count++;
 }
 
 void PhoneBook::search() const
 {
 	int i = 0;
 	int nb = -1;
+	std::string input = "";
 
-	if (_nextIndex == 0)
+	if (_count == 0)
 	{
 		std::cout << "Phonebook is empty. Please add a contact first." << std::endl;
 		return ;
 	}
-	while (i < _nextIndex)
+	while (i < _count)
 	{
-		std::cout << _nextIndex << std::endl;
 		std::cout << std::setw(10) << std::right << i << "|";
 		std::cout << std::setw(10) << std::right << _formatField(_contacts[i].getFirstName()) << "|";
 		std::cout << std::setw(10) << std::right << _formatField(_contacts[i].getLastName()) << "|";
@@ -80,11 +83,13 @@ void PhoneBook::search() const
 		std::cout << std::endl;
 		i++;
 	}
-	while (nb < 0 || nb > 7)
+	while (nb < 0 || nb >= _count)
 	{
 		std::cout << "enter index of contact" << std::endl;
-		std::cin >> nb;
-		std::cin.ignore();
+		if (!std::getline(std::cin, input))
+			return ;
+		if (input.length() == 1 && input[0] >= '0' && input[0] <= '7')
+			nb = input[0] - '0';
 	}
 	display(nb);
 }
@@ -97,11 +102,9 @@ std::string PhoneBook::_formatField(std::string str) const
 }
 void PhoneBook::display(const int i) const
 {
-	std::cout << std::setw(10) << std::right << i << "|";
-	std::cout << std::setw(10) << std::right << _formatField(_contacts[i].getFirstName()) << "|";
-	std::cout << std::setw(10) << std::right << _formatField(_contacts[i].getLastName()) << "|";
-	std::cout << std::setw(10) << std::right << _formatField(_contacts[i].getNickName()) << "|";
-	std::cout << std::setw(10) << std::right << _formatField(_contacts[i].getPhoneNumber()) << "|";
-	std::cout << std::setw(10) << std::right << _formatField(_contacts[i].getDarkestSecret()) << "|";
-	std::cout << std::endl;
+	std::cout << "First name: " << _contacts[i].getFirstName() << std::endl;
+	std::cout << "Last name: " << _contacts[i].getLastName() << std::endl;
+	std::cout << "Nickname: " << _contacts[i].getNickName() << std::endl;
+	std::cout << "Phone number: " << _contacts[i].getPhoneNumber() << std::endl;
+	std::cout << "Darkest secret: " << _contacts[i].getDarkestSecret() << std::endl;
 }
